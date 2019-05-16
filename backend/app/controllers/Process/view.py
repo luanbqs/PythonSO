@@ -1,7 +1,19 @@
 from app import *
-from app.classes.process.Process import *
+
 from flask import jsonify, request
 
+
+@app.endpoint('/teste')
+def index():
+    try:
+        return jsonify({
+            "mensagem":"Tchau"
+        })
+    except Exception as error:
+        return jsonify({
+            "status":False,
+            "payload":error.args
+        })
 
 @app.endpoint('/create-process')
 def index():
@@ -12,7 +24,9 @@ def index():
         for i in content['n_process']:
             processos.append(Process(content['process_time']))
         
-        return processos
+        return jsonify({
+            "teste": "Tchau"
+        })
 
         
     
