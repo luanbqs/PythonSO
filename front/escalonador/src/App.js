@@ -12,14 +12,6 @@ export default class App extends Component {
         mensagem: 'oi'
       }    
   }
-  async testerota(){
-
-      const {data} = await service.post("/create-process",{nome:'oi'});
-      this.setState({
-        teste:data.mensagem
-      })
-      
-  }
 
   teste = async () => {
     const {data} = await service.post("/teste");
